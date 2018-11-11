@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+
+    <script>
+            // Initialize Firebase
+            var config = {
+              apiKey: "AIzaSyCy7OmU5fPFZIY2wxg-Ask5V4JJxLB7A_o",
+              authDomain: "ped-bachao.firebaseapp.com",
+              databaseURL: "https://ped-bachao.firebaseio.com",
+              projectId: "ped-bachao",
+              storageBucket: "ped-bachao.appspot.com",
+              messagingSenderId: "51830871995"
+            };
+            firebase.initializeApp(config);
+            // console.log(firebase);
+          </script>
+</head>
+<body>
+    
+    <table>
+        <thead>
+            <tr>
+                <td><b>Humidity</b></td>
+                <td><b>Temperature</b></td>
+                <td><b>Ultrasonic</b></td>
+                <td><b>Soil_moisture</b></td>
+            </tr>
+        </thead>
+        <tbody id="table_body">
+                <tr>
+                        <td id="1"></td>
+                        <td id="2"></td>
+                        <td id="3"></td>
+                        <td id="4"></td>
+                    </tr>
+                    <tr>
+                        <td id="s1"></td>
+                        <td id="s2"></td>
+                        <td id="s3"></td>
+                        <td id="s4"></td>
+                    </tr>
+        </tbody>
+    </table>
+        <h1 id="loc"></h1>
+        <div>
+            <button id="btn1" style="color:black;background: red" onclick="myFunction()">Sprinkler Actuator</button>
+            status:<span id="stat">0</span>
+        </div>
+        
+
+
+        <script>
+                var humidity;
+                var temperature;
+                var soil_moisture;
+                var database=firebase.database();
+                var ref=database.ref().child("coordinate1/humidity");
+                // var ch=ref.ref().child("longitude");
+                var ref1=database.ref().child("coordinate1/temperature");
+                var ref2=database.ref().child("coordinate1/soil_moisture");
+                var ref3=database.ref().child("coordinate1/ultrasonic")
+                // var ref2=database.ref().child("temperature");
+                ref.on('value',function(datasnapshot){
+                    humidity=datasnapshot.val();
+                    document.getElementById('1').innerHTML = humidity;
+                    console.log("humidity:"+humidity);
+                });
+                ref1.on('value',function(datasnapshot){
+                    temperature=datasnapshot.val();
+                    document.getElementById('2').innerHTML = temperature;
+                    console.log("temperature:"+temperature);
+                    
+                });
+                ref2.on('value',function(datasnapshot){
+                    soil_moisture=datasnapshot.val();
+                    document.getElementById('4').innerHTML = soil_moisture;
+                    console.log("soil_moisture:"+soil_moisture);
+                        if(soil_moisture<29){
+                            alert("please turn on the sprinkler!");
+                            console.log("please turn on the sprinkler!");
+                            document.getElementById('s4').innerHTML = "ON";
+                        }
+                        else if(soil_moisture>60){
+                            // console.log("please turn on the sprinkler!");
+                            document.getElementById('s4').innerHTML = "OFF";
+                        }
+                        else {
+                            // console.log("please turn on the sprinkler!");
+                            document.getElementById('s4').innerHTML = "OFF";
+                        }
+                });
+                ref3.on('value',function(datasnapshot){
+                    ultrasonic=datasnapshot.val();
+                    document.getElementById('3').innerHTML = ultrasonic;
+                    console.log("ultrasonic:"+ultrasonic);
+                    
+                });
+                function myFunction() {
+                        if(document.getElementById('btn1').style.background=="red"){
+                            document.getElementById('btn1').style.background="green";
+                            document.getElementById('stat').innerHTML="1";
+                            document.getElementById('s4').innerHTML="ON";
+                        }
+                        else{
+                            document.getElementById('btn1').style.background="red";
+                            document.getElementById('stat').innerHTML="0";
+                            document.getElementById('s4').innerHTML="OFF";
+                        }
+                    }
+        </script>
+
+</body>
+</html>
