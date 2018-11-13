@@ -113,11 +113,12 @@
                     var ref=database.ref('newcoord1');
                     
                     var data={
-                        latitide:position.coords.latitude,
+                        latitude:position.coords.latitude,
                         longitude:position.coords.longitude
                     }
                 ref.push(data);  
-                    window.location.href = "new.html";
+                    // window.location.href = "new.html";
+                    window.alert("data_pushed");
                     });
 
 var marker = new google.maps.Marker({

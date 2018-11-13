@@ -52,7 +52,14 @@
             <button id="btn1" style="color:black;background: red;" onclick="myFunction()">Sprinkler Actuator</button>
             status:<span id="stat">0</span>
         </div>
-
+        <div>
+                <br>
+                <b>Optimum Values:<br></b><br>
+                Humidity: 30 to 70<br>
+                Temperature: 28 to 38<br>
+                Soil_moisture: 35 to 65<br>
+                
+            </div>
         
 
 
@@ -93,10 +100,21 @@
                             alert("please turn on the sprinkler!");
                             console.log("please turn on the sprinkler!");
                             document.getElementById('s4').innerHTML = "ON";
+                            document.getElementById('stat').innerHTML="1";
+                            var ref4=database.ref().child("coordinates/sprinkler");
+                            var data={
+                                sprinkler:1
+                                }
+                            ref4.push(data);  
                         }
                         else if(soil_moisture>60){
                             // console.log("please turn on the sprinkler!");
                             document.getElementById('s4').innerHTML = "OFF";
+                            var ref4=database.ref().child("coordinates/sprinkler");
+                            var data={
+                                sprinkler:0
+                                }
+                            ref4.push(data);  
                         }
                         else {
                             // console.log("please turn on the sprinkler!");
@@ -108,11 +126,21 @@
                             document.getElementById('btn1').style.background="green";
                             document.getElementById('stat').innerHTML="1";
                             document.getElementById('s4').innerHTML="ON";
+                            var ref4=database.ref().child("coordinates/sprinkler");
+                            var data={
+                                sprinkler:1
+                                }
+                            ref4.push(data);  
                         }
                         else{
                             document.getElementById('btn1').style.background="red";
                             document.getElementById('stat').innerHTML="0";
                             document.getElementById('s4').innerHTML="OFF";
+                            var ref4=database.ref().child("coordinates/sprinkler");
+                            var data={
+                                sprinkler:0
+                                }
+                            ref4.push(data);  
                         }
                     }
         </script>
