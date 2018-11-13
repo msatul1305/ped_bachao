@@ -105,7 +105,18 @@
                   position: pos,
                   map: map
                     });
-                    marker.addListener('click', function() {  
+                    // console.log(position.coords.latitude);
+                    // console.log(position.coords.longitude);
+                    marker.addListener('click', function() {
+                      var database = firebase.database();
+        // console.log(database); 
+                    var ref=database.ref('newcoord1');
+                    
+                    var data={
+                        latitide:position.coords.latitude,
+                        longitude:position.coords.longitude
+                    }
+                ref.push(data);  
                     window.location.href = "new.html";
                     });
 

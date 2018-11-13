@@ -49,9 +49,10 @@
     </table>
         <h1 id="loc"></h1>
         <div>
-            <button id="btn1" style="color:black;background: red" onclick="myFunction()">Sprinkler Actuator</button>
+            <button id="btn1" style="color:black;background: red;" onclick="myFunction()">Sprinkler Actuator</button>
             status:<span id="stat">0</span>
         </div>
+
         
 
 
@@ -88,7 +89,7 @@
                     soil_moisture=datasnapshot.val();
                     document.getElementById('4').innerHTML = soil_moisture;
                     console.log("soil_moisture:"+soil_moisture);
-                        if(soil_moisture<29){
+                        if(soil_moisture<35){
                             alert("please turn on the sprinkler!");
                             console.log("please turn on the sprinkler!");
                             document.getElementById('s4').innerHTML = "ON";

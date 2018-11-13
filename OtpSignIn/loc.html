@@ -88,10 +88,12 @@
                     soil_moisture=datasnapshot.val();
                     document.getElementById('4').innerHTML = soil_moisture;
                     console.log("soil_moisture:"+soil_moisture);
-                        if(soil_moisture<29){
+                        if(soil_moisture<35){
                             alert("please turn on the sprinkler!");
                             console.log("please turn on the sprinkler!");
                             document.getElementById('s4').innerHTML = "ON";
+                            document.getElementById('btn1').style.background="green";
+                            document.getElementById('stat').innerHTML="1";
                         }
                         else if(soil_moisture>60){
                             // console.log("please turn on the sprinkler!");
