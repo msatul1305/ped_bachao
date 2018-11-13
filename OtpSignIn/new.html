@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Location Values</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCy7OmU5fPFZIY2wxg-Ask5V4JJxLB7A_o",
+        authDomain: "ped-bachao.firebaseapp.com",
+        databaseURL: "https://ped-bachao.firebaseio.com",
+        projectId: "ped-bachao",
+        storageBucket: "ped-bachao.appspot.com",
+        messagingSenderId: "51830871995"
+      };
+      firebase.initializeApp(config);
+      console.log(firebase);
+    </script>
+</head>
+<body>
+
+
+
+
+
+
+
+    <script>
+        var database = firebase.database();
+        function writeUserData(userId, name, email, imageUrl) {
+            firebase.database().ref('users/' + userId).set({
+                username: name,
+                email: email,
+                profile_picture : imageUrl
+            });
+        }
+    </script>
+
+</body>
+</html>
