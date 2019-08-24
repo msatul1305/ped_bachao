@@ -41,7 +41,8 @@ Use Cases
 2. Social Workers – monitor farms
 3. Agriculture Research Department – collect data about various farms, soil and know the reasons for failure.
 4. Government – help the farmers in case of emergency 
-<br>List of Sensors<br>
+<br>
+List of Sensors
 <ol>
   <li>Node MCU</li>
   <li>DHT sensor</li>
@@ -50,4 +51,11 @@ Use Cases
   <li>Ultrasonic Sensor</li>
   <li>Motor Driver</li>
  </ol>
-  
+  List of technologies used
+<ul>
+  <li>Arduino Ide</li>
+  <li>Firebase</li>
+  <li></li>
+  <li></li>
+  <li></li>
+ </ul>
