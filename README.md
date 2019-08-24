@@ -1,4 +1,5 @@
 # ped_bachao
+
 ABSTRACT/INTRODUCTION
 The proposed system designed will of an app, a database and a few sensors which send data to the database. Users have to upload the location of the sapling which they planted in the app and is later viewed using google maps for geotagging purpose. Sensors to detect vibration have also been proposed to know if miscreants are cutting down the tree. Different components communicate with the database using an Arduino and data is sent to cloud using NodeMCU module which connects to the internet and send/Receive data. Alternatively, they will be allowed to communicate over cellular network. A provision has been kept where user is also alerted through SMS if any abnormal inputs are provided by the sensor.
 SOLUTION
@@ -40,4 +41,13 @@ Use Cases
 2. Social Workers – monitor farms
 3. Agriculture Research Department – collect data about various farms, soil and know the reasons for failure.
 4. Government – help the farmers in case of emergency 
-
+<br>List of Sensors<br>
+<ol>
+  <li>Node MCU</li>
+  <li>DHT sensor</li>
+  <li>Soil Moisture Sensor</li>
+  <li>Sprinkler</li>
+  <li>Ultrasonic Sensor</li>
+  <li>Motor Driver</li>
+ </ol>
+  
